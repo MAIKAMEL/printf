@@ -24,7 +24,7 @@ int handle_write_char(char s, char buf[], int flag,
 	if (flag & F_ZERO)
 		padding = '0';
 
-	buf[i++] = c;
+	buf[i++] = s;
 	buf[i] = '\0';
 
 	if (width > 1)
@@ -114,7 +114,7 @@ int write_num(int ind, char buf[], int flag, int width,
 		if (flag & F_MINUS && padding == ' ')
 		{
 			if (extra_char)
-				buffer[--ind] = extra_char;
+				buf[--ind] = extra_char;
 			return (write(1, &buf[ind], length) + write(1, &buf[1], i - 1));
 		}
 		else if (!(flag & F_MINUS) && padding == ' ')
@@ -213,13 +213,13 @@ int write_pointer(char buf[], int ind, int length, int width,
 	if (width > length)
 	{
 		for (i = 3; i < width - length + 3; i++)
-			buffer[i] = padding;
+			buf[i] = padding;
 		buf[i] = '\0';
 		if (flag & F_MINUS && padding == ' ')
 		{
 			buf[--ind] = 'x';
 			buf[--ind] = '0';
-			if (extra_chat)
+			if (extra_char)
 				buf[--ind] = extra_char;
 			return (write(1, &buf[ind], length) + write(1, &buf[3], i - 3));
 		}
@@ -244,7 +244,7 @@ int write_pointer(char buf[], int ind, int length, int width,
 	buf[--ind] = 'x';
 	buf[--ind] = '0';
 	if (extra_char)
-		buf[--ind] = extra_c;
+		buf[--ind] = extra_char;
 	return (write(1, &buf[ind], BUFF_SIZE - ind - 1));
 }
 
