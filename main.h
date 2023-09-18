@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
@@ -116,3 +117,26 @@ long int convert_size_unsgnd(unsigned long int num, int size);
 
 #endif /* MAIN_H */
 
+=======
+#ifndef _PRINTF_H_
+#define _PRINTF_H_
+
+/*Include required libraries*/
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+/*the prototype will be implement in printf.c file*/
+int _printf(const char *format, ...);
+
+
+
+
+
+
+
+
+#endif
+>>>>>>> 7e2fcc7c8acdc9355d255440863e31faaf3987c5
